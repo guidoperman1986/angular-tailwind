@@ -1,16 +1,49 @@
+import { Company } from './../../interfaces/signals.interface';
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  signal,
+} from '@angular/core';
 import { CounterComponent } from '../../components/counter/counter.component';
 import { ProgressBarComponent } from '../../components/progress-bar/progress-bar.component';
+import { CompaniesTableComponent } from '../../components/companies-table/companies-table.component';
 
 @Component({
   selector: 'app-signals',
   standalone: true,
-  imports: [CommonModule, CounterComponent, ProgressBarComponent],
+  imports: [
+    CommonModule,
+    CounterComponent,
+    ProgressBarComponent,
+    CompaniesTableComponent,
+  ],
   templateUrl: './signals.component.html',
   styleUrl: './signals.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SignalsComponent {
   counter = 0;
+
+  companies = signal<Company[]>([
+    {
+      stockName: 'Company A',
+      price: 50.25,
+      quantity: 100,
+      total: 5025.0,
+    },
+    {
+      stockName: 'Company B',
+      price: 75.6,
+      quantity: 150,
+      total: 11340.0,
+    },
+    {
+      stockName: 'Company C',
+      price: 30.8,
+      quantity: 200,
+      total: 6160.0,
+    },
+  ]);
 }
