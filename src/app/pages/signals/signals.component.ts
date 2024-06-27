@@ -1,14 +1,19 @@
-import { Company } from './../../interfaces/signals.interface';
 import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
-  computed,
+  ElementRef,
+  OnInit,
+  effect,
   signal,
+  viewChild
 } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { interval } from 'rxjs';
+import { CompaniesTableComponent } from '../../components/companies-table/companies-table.component';
 import { CounterComponent } from '../../components/counter/counter.component';
 import { ProgressBarComponent } from '../../components/progress-bar/progress-bar.component';
-import { CompaniesTableComponent } from '../../components/companies-table/companies-table.component';
+import { Company } from './../../interfaces/signals.interface';
 
 @Component({
   selector: 'app-signals',
@@ -23,7 +28,7 @@ import { CompaniesTableComponent } from '../../components/companies-table/compan
   styleUrl: './signals.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SignalsComponent {
+export class SignalsComponent implements OnInit {
   counter = 0;
 
   companies = signal<Company[]>([
@@ -46,4 +51,20 @@ export class SignalsComponent {
       total: 6160.0,
     },
   ]);
+
+  signalCounter = toSignal(interval(1000), { initialValue: 0 });
+  companyTable = viewChild('companyTable', {
+    read: ElementRef,
+  });
+
+  counterQuery = viewChild('counterSignal', { read: CounterComponent });
+  counterNumber!: number;
+
+  constructor() {
+    effect(() => {
+      this.counterNumber = this.counterQuery()?.counter()!;
+    });
+  }
+
+  ngOnInit(): void {}
 }

@@ -1,5 +1,29 @@
-<app-counter [(counter)]="counter"></app-counter>
+<div>
+  <h1 class="h1 text-center">Usage of signals and model</h1>
 
-<app-progress-bar [counter]="counter"></app-progress-bar>
+  <app-counter [(counter)]="counter" #counterSignal></app-counter>
 
-<app-companies-table [companies]="companies()"></app-companies-table>
+  <app-progress-bar [counter]="counter"></app-progress-bar>
+
+  <hr />
+
+  <app-companies-table
+    [companies]="companies()"
+    #companyTable
+  ></app-companies-table>
+</div>
+
+<hr />
+
+<div class="mt-3 flex justify-center flex-col items-center">
+  <h1 class="h1">Usage of toSignal</h1>
+  <p>{{ signalCounter() }}</p>
+</div>
+
+<div class="mt-3 flex flex-col items-center">
+  <h1 class="h1">Usage of viewChild with signals</h1>
+  <p>Modifying the counter, will update this</p>
+  <p>{{ counterQuery()?.counter() }}</p>
+
+  <h2></h2>
+</div>
