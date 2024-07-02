@@ -1,0 +1,37 @@
+@defer () {
+<div
+  class="bg-gradient-to-bl from-blue-50 to-violet-50 flex items-center justify-center"
+>
+  <div class="container mx-auto p-4">
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4"
+    >
+      @for (headline of topHeadLines(); track $index) {
+
+      <div class="bg-white rounded-lg border p-4">
+        <img
+          [src]="headline.urlToImage ?? 'assets/no_image_placeholder.png'"
+          alt="Placeholder Image"
+          class="w-full h-48 rounded-md object-cover"
+        />
+        <div class="px-1 py-4">
+          <div class="font-bold text-xl mb-2">{{ headline.title }}</div>
+          <p class="text-gray-700 text-base">
+            {{ headline.description }}
+          </p>
+        </div>
+        <div class="px-1 py-4">
+          <a
+            [href]="headline.url"
+            target="_blank"
+            class="text-blue-500 hover:underline"
+            >Read More</a
+          >
+        </div>
+      </div>
+
+      }
+    </div>
+  </div>
+</div>
+} @placeholder { Loading... }

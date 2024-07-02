@@ -18,5 +18,10 @@ export class SidebarComponent {
       icon: 'signal',
       route: '/signals',
     },
+    {
+      title: 'Deferred Views',
+      icon: 'deferredviews',
+      route: '/deferredviews',
+    },
   ];
 }

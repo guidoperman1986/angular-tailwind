@@ -17,6 +17,13 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'deferredviews',
+        loadComponent: () =>
+          import('./pages/deferredviews/deferredviews.component').then(
+            (m) => m.DeferredviewsComponent
+          ),
+      },
+      {
         path: '**',
         redirectTo: 'signals',
       },
