@@ -5,13 +5,16 @@ import { Article } from '../../interfaces/news.interface';
 @Component({
   selector: 'app-news-card',
   standalone: true,
-  imports: [
-    CommonModule,
-  ],
+  imports: [CommonModule],
   templateUrl: './news-card.component.html',
   styleUrl: './news-card.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class NewsCardComponent { 
-  headline = input<Article>();
+export class NewsCardComponent {
+  headline = input.required<Article>();
+
+  constructor() {
+    /* const start = Date.now();
+    while (Date.now() - start < 3000) {} */
+  }
 }

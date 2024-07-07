@@ -7,11 +7,12 @@ import {
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { NewsApiService } from '../../services/newsApi/newsapi.service';
+import { NewsCardComponent } from '../../components/news-card/news-card.component';
 
 @Component({
   selector: 'app-deferredviews',
   standalone: true,
-  imports: [CommonModule, DeferredviewsComponent],
+  imports: [CommonModule, DeferredviewsComponent, NewsCardComponent],
   templateUrl: './deferredviews.component.html',
   styleUrl: './deferredviews.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

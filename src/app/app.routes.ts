@@ -24,6 +24,13 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'carrousel',
+        loadComponent: () =>
+          import('./pages/carrousel/carrousel.component').then(
+            (m) => m.CarrouselComponent
+          ),
+      },
+      {
         path: '**',
         redirectTo: 'signals',
       },

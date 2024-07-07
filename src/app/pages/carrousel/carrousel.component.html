@@ -1,0 +1,17 @@
+<div class="carrousel__container">
+  <div class="carrousel">
+    <div class="carrousel__cards">
+      @for (brand of brands; track $index) {
+      <div class="carrousel__card">
+        <img
+          class="carrousel__card-img"
+          [src]="brand.imageUrl"
+          [alt]="brand.name"
+          libImgFallback="https://via.placeholder.com/300x150/808080/808080"
+        />
+      </div>
+
+      }
+    </div>
+  </div>
+</div>

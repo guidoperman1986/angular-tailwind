@@ -23,5 +23,10 @@ export class SidebarComponent {
       icon: 'deferredviews',
       route: '/deferredviews',
     },
+    {
+      'title': 'Carrousel',
+      'icon': 'carrousel',
+      route: '/carrousel',
+    }
   ];
 }
