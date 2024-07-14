@@ -1,8 +1,4 @@
 :host {
- /*  position: absolute;
-  top: 200px;
-  width: 80%;
-  left: 100px; */
 
   margin: 0 auto 20px;
 
@@ -22,6 +18,8 @@ p {
 }
 
 .carrousel__container {
+  margin-top: 100px;
+
   position: relative;
 }
 
@@ -29,7 +27,7 @@ p {
   position: absolute;
 
   overflow: hidden;
-  /* width: 95%; */
+  width: 95%;
   margin: 0 auto;
 }
 
@@ -59,6 +57,7 @@ p {
 .carrousel__card-img {
   border-radius: 8px;
   width: 300px;
+  min-width: 300px;
   background-size: cover;
   max-height: 150px;
   padding: 15px 15px;
